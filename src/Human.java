@@ -1,11 +1,31 @@
 import java.util.Calendar;
 
 public class Human {
-    public int yearOfBirth;
+    private int yearOfBirth;
     public String name;
-    public String town;
+    private String town;
     public String jobTitle;
     private int year = Calendar.getInstance().get(Calendar.YEAR);
+
+    public String getTown(){
+        return town;
+    }
+
+    public void setTown(String town){
+        if (town==null || town.isBlank() || town.isEmpty()){
+            this.town="Информация не указана";
+        }
+        this.town=town;
+    }
+
+    public int getYearOfBirth() {
+        return yearOfBirth;
+    }
+
+    public void setYearOfBirth(int yearOfBirth) {
+        if (yearOfBirth<=0) { this.yearOfBirth=0;}
+        this.yearOfBirth = yearOfBirth;
+    }
 
     public Human(String name, int yearOfBirth, String town, String jobTitle) {
         if (name == null || name == "") {
